@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:http/http.dart' as http;
 
-import 'add.dart';
+
+import 'Add.dart';
 import 'edit.dart';
 
 class amzad extends StatefulWidget {
-  const amzad({super.key});
-
+ 
   @override
   State<amzad> createState() => _amzadState();
 }
@@ -62,11 +62,8 @@ class _amzadState extends State<amzad> {
                   onTap: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => Edit(
-                                  id: _get[index]['id'],
-                                )));
-                  },
+                        MaterialPageRoute(builder: (context) => Edit(id: _get[index]['id'],)));
+                          },
                   child: Card(
                     color: _lightColors[index % _lightColors.length],
                     child: Container(
@@ -77,6 +74,13 @@ class _amzadState extends State<amzad> {
                         children: [
                           Text(
                             '${_get[index]['date']}',
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                          const SizedBox(
+                            height: 100,
+                          ),
+                          Text(
+                            '${_get[index]['content']}',
                             style: const TextStyle(color: Colors.black),
                           ),
                           const SizedBox(
@@ -112,7 +116,7 @@ class _amzadState extends State<amzad> {
         child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const add()));
+              context, MaterialPageRoute(builder: (context) => const Add()));
         },
       ),
     );

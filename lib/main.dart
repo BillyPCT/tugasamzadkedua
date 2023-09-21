@@ -22,7 +22,7 @@ class Myapp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/':(context) => const amzad(),
+        '/':(context) => amzad(),
       },
     );
   }
